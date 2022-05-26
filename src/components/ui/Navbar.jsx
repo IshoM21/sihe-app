@@ -46,9 +46,9 @@ export const Navbar = () => {
                         </li>
 
                         <li 
-                        className="nav-item link"
-                        // className={ () => 'nav-item link ' + (hideItem && 'd-none')}
-                        hidden={hideItem}
+                            className="nav-item link"
+                            // className={ () => 'nav-item link ' + (hideItem && 'd-none')}
+                            hidden={hideItem}
                         >
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Habilidades

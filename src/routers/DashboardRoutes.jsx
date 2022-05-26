@@ -12,6 +12,7 @@ import { HeaderSistema } from "../components/ui/HeaderSistema";
 import { HeaderUsuario } from "../components/ui/HeaderUsuario";
 import { Home } from "../components/ui/Home";
 import { NotFoundPage } from "../components/ui/NotFoundPage";
+import { Coordinaciones } from "../components/catalogos/Coordinaciones";
 
 
 
@@ -27,6 +28,7 @@ export const DashboardRoutes = () => {
                     <Route path="empleados" element={<Empleados />} />
                     <Route path="centros" element={<Centros />} />
                     <Route path="perfiles" element={<Perfiles />} />
+                    {/* <Route path="coordinaciones" element={<Coordinaciones />} /> */}
                     <Route path="lenguajes" element={<HabilidadesLenguajesScreen />} />
                     <Route path="componentes" element={<HabilidadesComponentesScreen />} />
                     <Route path="requerimientos" element={<RequerimientosScreen />} />

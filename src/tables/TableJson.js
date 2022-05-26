@@ -1,7 +1,7 @@
 import MUIDataTable from "mui-datatables";
 import React from "react";
 
-export const TableJson = ({ data, columnas, options, title = '' }) => {
+export const TableJson = ({ data, columnas, options={}, title = '' }) => {
     
 
     return (
