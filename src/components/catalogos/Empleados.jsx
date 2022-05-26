@@ -1,11 +1,30 @@
 
 import { Button } from '@mui/material'
-import { empleados } from '../../data/data'
+// import { empleados } from '../../data/data'
 import { TableJson } from '../../tables/TableJson'
 // import users from '../../tables/users.json'
+import { useEffect, useState } from 'react'
 
 
 export const Empleados = () => {
+
+    const [empleados, setEmpleados] = useState([])
+
+    useEffect(() => {
+        const obtenerEmpleados = async () => {
+            try {
+                const url = `${process.env.REACT_APP_API_URL}/empleados`
+                console.log(url);
+                const respuesta = await fetch(url)
+                const resultado = await respuesta.json()
+                console.log(resultado);
+                setEmpleados(resultado)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        obtenerEmpleados()
+    }, [])
 
     const columnas = [
         {
@@ -66,13 +85,33 @@ export const Empleados = () => {
         download: false,
         filter: false,
         viewColumns: false,
-        selectableRowsHideCheckboxes:true
+        selectableRowsHideCheckboxes: true
     };
 
+    const handleSave = async (e) => {
+        e.preventDefault()
+        try {
+            const url = `http://localhost:4000/`
+            console.log(url);
+            const respuesta = await fetch(url, {
+                method:'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify({"username":"dd", "password": "123"})
+
+            })
+            const resultado = await respuesta.json()
+            console.log(resultado);
+        } catch (error) {
+            console.log(JSON.stringify(error));
+        }
+    }
     return (
         <div>
             <div className="d-flex justify-content-between align-items-center mb-2">
                 <h3>Lista de Empleados</h3>
+                <Button variant="contained" onClick={handleSave} >FEC</Button>
                 <Button data-bs-toggle="modal" tabIndex="-1" data-bs-target="#modalAddEmpleado" variant="contained">Nuevo Empleado</Button>
             </div>
             <TableJson data={empleados} columnas={columnas} options={options} />
