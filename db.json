@@ -1,25 +1,91 @@
 {
-    "empleados":[
-        {
-            "noEmpleado": "99091234",
-            "nombre":"Luis Enrique Moo", 
-            "email":"luis.moo@coppel.com",
-            "perfil":"programador",
-            "rol":"admin"
-        },
-        {
-            "noEmpleado": "99095678",
-            "nombre":"Luis Alberto Beltran", 
-            "email":"luis.beltran@coppel.com",
-            "perfil":"programador",
-            "rol":"admin"
-        },
-        {
-            "noEmpleado": "99191234",
-            "nombre":"Luis Angel", 
-            "email":"luis.angel@coppel.com",
-            "perfil":"programador",
-            "rol":"user"
+  "empleados": [
+    {
+      "id": 1,
+      "primerNombre": "Jaime",
+      "segundoNombre": "",
+      "apellidoPaterno": "Lopez",
+      "apellidoMaterno": "Paredes",
+      "idCentro": {
+        "id": 1,
+        "descripcion": "CENTRO PRUEBA",
+        "idCoordinacionDesarrollo": 1
+      },
+      "idPerfil": {
+        "idPerfil": 2,
+        "descripcion": "Desarrollador Java",
+        "su": true
+      },
+      "lugarPosicion": null,
+      "correo": "alan.tasf@coppel.com",
+      "password": "987445336",
+      "externo": true
+    },
+    {
+      "id": 2,
+      "primerNombre": "Alan",
+      "segundoNombre": "",
+      "apellidoPaterno": "Castro",
+      "apellidoMaterno": "Paredes",
+      "idCentro": {
+        "id": 1,
+        "descripcion": "CENTRO PRUEBA",
+        "idCoordinacionDesarrollo": 1
+      },
+      "idPerfil": {
+        "idPerfil": 1,
+        "descripcion": "Analista",
+        "su": true
+      },
+      "lugarPosicion": null,
+      "correo": "alan.tasf@coppel.com",
+      "password": "987445336",
+      "externo": true
+    },
+    {
+      "id": 3,
+      "primerNombre": "Jorge",
+      "segundoNombre": "",
+      "apellidoPaterno": "Castro",
+      "apellidoMaterno": "Paredes",
+      "idCentro": {
+        "id": 1,
+        "descripcion": "CENTRO PRUEBA",
+        "idCoordinacionDesarrollo": 1
+      },
+      "idPerfil": {
+        "idPerfil": 3,
+        "descripcion": "Desarrollador Backend",
+        "su": true
+      },
+      "lugarPosicion": null,
+      "correo": "alan.tasf@coppel.com",
+      "password": "987445336",
+      "externo": true
+    },
+    {
+      "id": 5,
+      "primerNombre": "ANA",
+      "segundoNombre": "SOFIA",
+      "apellidoPaterno": "JUAREZ",
+      "apellidoMaterno": "LOPEZ",
+      "idCentro": {
+        "id": 1,
+        "descripcion": "Centro 1",
+        "idCoordinacionDesarrollo": {
+          "id": 1,
+          "descripcion": "Cordinación 1"
         }
-    ]
+      },
+      "idPerfil": {
+        "idPerfil": 1,
+        "descripcion": "Perfil 1",
+        "su": false
+      },
+      "lugarPosicion": null,
+      "correo": "ana@coppel.com",
+      "password": "anakaren",
+      "externo": true
+    }
+  ]
 }

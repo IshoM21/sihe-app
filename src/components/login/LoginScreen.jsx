@@ -12,20 +12,20 @@ export const LoginScreen = () => {
     const {dispatch} = useContext(AuthContext)
 
     const handleLogin = () => {
-        // const action = {
-        //     type: types.login,
-        //     payload:{
-        //         name: 'Jaime',
-        //         rol: 'Admin'
-        //     }
-        // }
         const action = {
             type: types.login,
             payload:{
                 name: 'Jaime',
-                rol: 'Usuario'
+                rol: 'Admin'
             }
         }
+        // const action = {
+        //     type: types.login,
+        //     payload:{
+        //         name: 'Jaime',
+        //         rol: 'Usuario'
+        //     }
+        // }
         dispatch(action)
         const lastPath = localStorage.getItem('lastPath') || '/dashboard/home'
         navigate(lastPath,{
