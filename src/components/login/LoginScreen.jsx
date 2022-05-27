@@ -11,32 +11,81 @@ export const LoginScreen = () => {
 
     const {dispatch} = useContext(AuthContext)
 
-    const handleLogin = () => {
-        const action = {
-            type: types.login,
-            payload:{
-                name: 'Jaime',
-                rol: 'Admin'
-            }
+    // const handleLogin = () => {
+    //     const action = {
+    //         type: types.login,
+    //         payload:{
+    //             name: 'Jaime',
+    //             rol: 'Admin'
+    //         }
+    //     }
+    //     // const action = {
+    //     //     type: types.login,
+    //     //     payload:{
+    //     //         name: 'Jaime',
+    //     //         rol: 'Usuario'
+    //     //     }
+    //     // }
+    //     dispatch(action)
+    //     const lastPath = localStorage.getItem('lastPath') || '/dashboard/home'
+    //     navigate(lastPath,{
+    //         replace:true
+    //     })
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        try{
+            const url = 'http://localhost:4000/'
+            console.log(url);
+            const respuesta = await fetch(url,{
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify({"username": "", "password":"123"})
+            })
+            const {toke} = await respuesta.json()
+            console.log(toke);
+        }catch (error){
+            console.log(JSON.stringify(error))
         }
-        // const action = {
-        //     type: types.login,
-        //     payload:{
-        //         name: 'Jaime',
-        //         rol: 'Usuario'
-        //     }
-        // }
-        dispatch(action)
-        const lastPath = localStorage.getItem('lastPath') || '/dashboard/home'
-        navigate(lastPath,{
-            replace:true
-        })
+
+        if(toke != ""){
+            try{
+                const url = 'http://localhost:4000/'
+                console.log(url);
+                const respuesta = await fetch(url,{
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json',
+                    },
+                    body: JSON.stringify({"token": respuesta})
+                })
+                const datos = await datos.json()
+                console.log(JSON.stringify(datos))
+            }catch(error){
+                console.log(JSON.stringify(error))
+            }
+
+            dispatch(action)
+            const lastPath = localStorage.getItem('lastPath') || '/dashboard/home'
+            navigate(lastPath,{
+                replace:true
+            })
+        }
+
+        //dispatch(action)
+        //const lastPath = localStorage.getItem('lastPath') || '/dashboard/home'
+        //navigate(lastPath,{
+           // replace:true
+        //})
     }
+
+
     return (
-        <div class="vh-auto">
+        <div class="vh-auto login" >
             <div class="container-fluid h-custom">
-                <div class="">
-                    <div class="col-md-9 col-lg-6 col-xl-5">
+                <div class="login">
+                    <div class="col-md-9 col-lg-6 col-xl-5 ">
                     <img src={logoCoppel} class="img-fluid" alt="Sample image"/>
                     </div>
                     <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
