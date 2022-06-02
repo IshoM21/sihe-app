@@ -7,14 +7,14 @@ export const HeaderSistema = () => {
 
     const navigate = useNavigate()
 
-    const { user, dispatch } = useContext( AuthContext )
+    const { dispatch } = useContext( AuthContext )
 
     const handleLogout = () => {
         const action = {
             type: types.logout
         }
         dispatch(action)
-        navigate('/', {
+        navigate('/system/login', {
             replace:true
         })
     }

@@ -1,4 +1,3 @@
-import { display } from '@mui/system';
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../auth/authContext';
@@ -7,8 +6,7 @@ import { AuthContext } from '../../auth/authContext';
 export const Navbar = () => {
 
     const {user} = useContext(AuthContext)
-    const hideItem = user.rol !== 'Admin'
-    console.log(hideItem);
+    const admin = user.admin
     return (
         <nav className="navbar navbar-expand-sm bg-light">
             <div className="container-fluid">
@@ -41,14 +39,18 @@ export const Navbar = () => {
                                     <NavLink
                                         className="nav-item nav-link"
                                         to="centros"
-                                    >Centros</NavLink></li>
+                                    >Centros de Desarrollo</NavLink></li>
+                                <li className="nav-item">
+                                    <NavLink
+                                        className="nav-item nav-link"
+                                        to="coordinaciones"
+                                    >Coordinaciones</NavLink></li>
                             </ul>
                         </li>
 
-                        <li 
+                        {admin && <li 
                             className="nav-item link"
                             // className={ () => 'nav-item link ' + (hideItem && 'd-none')}
-                            hidden={hideItem}
                         >
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Habilidades
@@ -63,7 +65,7 @@ export const Navbar = () => {
                                     to="componentes">Habilidades Componentes</NavLink></li>
                             </ul>
 
-                        </li>
+                        </li>}
                         <NavLink
                             className="nav-item nav-link"
                             to="requerimientos"
